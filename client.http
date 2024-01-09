@@ -1,0 +1,119 @@
+### Register a new user
+POST http://localhost:3000/register-User
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "password123",
+  "name": "John Doe",
+  "email": "john.doe@example.com"
+}
+
+###Login with the registered user
+POST http://localhost:3000/login-user
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "password123"
+}
+
+### Rent a car
+POST http://localhost:3000/rent-car
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5kb2UiLCJpYXQiOjE3MDQ4MzQwNDMsImV4cCI6MTcwNDgzNzY0M30.HUOUKmV0yco6azI1iUBCNbNBC-l7xtd9k2j1ifo9KeY
+
+{
+  "name": "AMAR",
+  "phonenumber": "0123456789911",
+  "appointmentDate": "2024-11-11",
+  "ICnumber": "998675736234",
+  "email": "AMAR@example.com"
+}
+
+
+### Replace 'your_token_here' with the actual user token obtained after login
+DELETE http://localhost:3000/delete-rent-car/1000-00-00
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5kb2UiLCJpYXQiOjE3MDQ4MzM2NjMsImV4cCI6MTcwNDgzNzI2M30.r-T9NvDwLqR4pdrkD09DwHQdW2Z2YiRq0yhTWGQa748
+
+
+
+### Create Appointment
+POST http://localhost:2050/create-appointment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyIiwiaWF0IjoxNzA0NzEwNzk5LCJleHAiOjE3MDQ3MTQzOTl9.Xb75lxhST8srfI2IfP6J4LAAdnxPwTA8ugzLsy2JSEw
+
+{
+  "name": "Appointment Name",
+  "phonenumber": "+9876543210",
+  "appointmentDate": "2024-01-15",
+  "time": "10:00 AM",
+  "purpose": "Regular checkup"
+}
+
+### View Appointment History
+GET http://localhost:2050/appointment-history
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyIiwiaWF0IjoxNzA0NzEwNzk5LCJleHAiOjE3MDQ3MTQzOTl9.Xb75lxhST8srfI2IfP6J4LAAdnxPwTA8ugzLsy2JSEw
+
+
+
+##### Admin Login - Get Admin Token
+POST http://localhost:3000/login-admin
+Content-Type: application/json
+
+{
+  "privateKey": "123"
+}
+
+
+### Admin Update Rental Data for a User
+PATCH http://localhost:3000/admin-update-rental/johndoe
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzA0ODMwNjY1LCJleHAiOjE3MDQ4MzQyNjV9.tk9wfW_0Qji3GTZ3SgSZuil_UWJ9NV2YqFCE6oCn56I
+
+{
+  "name": "Safwan",
+  "email": "safwan@example.com",
+  "phonenumber": "0112567890",
+  "appointmentDate": "1000-00-00",
+  "ICnumber": "123456789012"
+}
+
+
+### Admin View All Data
+GET http://localhost:3000/admin-view-data
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzA0ODM2MTk1LCJleHAiOjE3MDQ4Mzk3OTV9.ORdXNq0VEL6NN7zA1yP9CUm64Nn3yFvNSvTm1uHoN5w
+
+
+### Admin Create Car Details
+POST http://localhost:3000/admin-create-car
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzA0ODM1Njg1LCJleHAiOjE3MDQ4MzkyODV9.nROGhWCWtg_qhOc0YWlMbuTojpfpRNBrIS3IazLpyo0
+
+{
+  "brand": "Honda",
+  "model": "City",
+  "year": 2022,
+  "colour": "Oren",
+  "noplate": "PFB5985"
+}
+
+
+
+### Update Car Details by Admin
+PATCH http://localhost:3000/admin-update-car/659dbe3c73689052d475a5a7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzA0ODM3NjczLCJleHAiOjE3MDQ4NDEyNzN9.4RszxZouA0r9M8hsSGchk2vbWatuYI-r8Vm9n83TDCc
+
+{
+  "brand": "Updated Brand",
+  "model": "Updated Model",
+  "year": 2023,
+  "colour": "Updated Colour",
+  "noplate": "acd123"
+}
+
+
+### Admin delete car data
+DELETE http://localhost:3000/admin-delete-car/your_car_id_here
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
